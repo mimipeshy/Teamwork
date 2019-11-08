@@ -1,0 +1,22 @@
+{
+  "name": "teamwork",
+  "version": "1.0.0",
+  "description": "Teamwork is an ​ internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimipeshy/Teamwork.git"
+  },
+  "author": "mimi peshy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mimipeshy/Teamwork/issues"
+  },
+  "homepage": "https://github.com/mimipeshy/Teamwork#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0"
+  }
+}

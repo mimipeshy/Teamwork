@@ -8,7 +8,7 @@ const createGif = (req,res) => {
     [title, image, date], error => {
     if (error){
       throw error
-    }    res.status(200).json({
+    }    res.status(201).json({
               status: "success",
               data: {
                 message: "GIF image successfully posted",
@@ -19,8 +19,25 @@ const createGif = (req,res) => {
             });
   })
 }
+const createArticles =(req, res) => {
+  const {title,article, articleid} = req.body;
+  pool.query("INSERT INTO article (title, article, articleid) VALUES($1, $2, $3) RETURNING title, article,articleid",
+  [title,article, articleid], error =>{
+    if (error){
+      throw error
+    }res.status(201).json({
+      status: "success",
+      data: {
+        message: "GIF image successfully posted",
+        title: title,
+        article:article,
+        articleid:articleid
+      }
+      });
+  })
+}
 
 module.exports = {
-
-  createGif
+  createGif,
+  createArticles
 }

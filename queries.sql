@@ -1,15 +1,27 @@
-CREATE TABLE employee (
-	firstname varchar(50) NOT NULL,
-	lastname varchar(50)  NOT NULL,
-	email varchar(80)  NOT NULL UNIQUE,
-	password varchar(255) NOT NULL,
-	gender varchar(20)  NOT NULL,
-	job_role varchar(50) NOT NULL,
-	department varchar(50)NOT NULL,
-	address varchar(80) NOT NULL,
-	employeeid serial NOT NULL,
-	PRIMARY KEY (employeeid)
-);
+   
+CREATE TABLE IF NOT EXISTS employees(
+                user_id SERIAL PRIMARY KEY NOT NULL,
+                fname VARCHAR (80) NOT NULL,
+                lname VARCHAR (80) NOT NULL,
+                email VARCHAR(80) NOT NULL UNIQUE,
+                password VARCHAR(255) NOT NULL,
+                gender VARCHAR (24) NOT NULL,  
+                job_role VARCHAR(80) NOT NULL,
+                department VARCHAR(80) NOT NULL,
+				address VARCHAR(120) NOT NULL
+                
+);    
+CREATE TABLE IF NOT EXISTS users(
+                user_id SERIAL PRIMARY KEY NOT NULL,
+                fname VARCHAR (80) NOT NULL,
+                lname VARCHAR (80) NOT NULL,
+                othername VARCHAR (80),
+                email VARCHAR(80) NOT NULL UNIQUE,
+                phone VARCHAR (24) NOT NULL,  
+                password VARCHAR(255) NOT NULL,
+                passUrl VARCHAR(255) NOT NULL
+                
+);        
 
 CREATE TABLE gif (
 	gifid serial NOT NULL,
@@ -22,7 +34,7 @@ CREATE TABLE gif (
 
 ALTER TABLE gif
 	ADD FOREIGN KEY (authorid) 
-	REFERENCES employee (employeeid);
+	REFERENCES employees (user_id);
 
 CREATE TABLE article (
 	title varchar(50)NOT NULL,
@@ -35,7 +47,7 @@ CREATE TABLE article (
 
 ALTER TABLE article
 	ADD FOREIGN KEY (authorid) 
-	REFERENCES employee (employeeid);
+	REFERENCES employees (user_id);
 
 CREATE TABLE comment (
 	commentid serial NOT NULL,
@@ -49,7 +61,7 @@ CREATE TABLE comment (
 
 ALTER TABLE comment
 	ADD FOREIGN KEY (authorid) 
-	REFERENCES employee (employeeid);
+	REFERENCES employees (user_id);
 
 ALTER TABLE comment
 	ADD FOREIGN KEY (articleid) 

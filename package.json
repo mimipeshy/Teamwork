@@ -22,8 +22,13 @@
     "mocha": "^6.2.2"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bluebird": "^3.7.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.4",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "pg-promise": "^9.3.6"
   }
 }

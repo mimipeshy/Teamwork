@@ -1,26 +1,13 @@
-const { Pool } = require('pg');
-// your credentials
-DATABASE_URL = 'postgres://postgres:admin@localhost:5432/teamwork';
-const db = new Pool({
-  connectionString: DATABASE_URL
-});
+require('dotenv').config()
 
-console.log("successful connection")
+const { Pool } = require('pg')
+const isProduction = process.env.NODE_ENV === 'production'
 
-// a generic query, that executes all queries sent to it
-function query(text) {
-  return new Promise((resolve, reject) => {
-    db
-      .query(text)
-      .then((res) => {
-        resolve(res);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-  });
-}
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
 
-module.exports = {
-  db
-};
+const pool = new Pool({
+  connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+  ssl: isProduction,
+})
+
+module.exports = { pool }

@@ -4,7 +4,8 @@ const query = require('../server/queries');
 
 
 // user can create a gif
-router.post("/create-gif" , query.createGif);
+router.post("/gifs" , query.createGif);
+router.post("/article", query.createArticles);
 
 
 module.exports = router;

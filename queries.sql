@@ -37,13 +37,12 @@ ALTER TABLE gif
 	REFERENCES employees (user_id);
 
 CREATE TABLE article (
+	article_id SERIAL PRIMARY KEY NOT NULL,
 	title varchar(50)NOT NULL,
 	article varchar(10485760) NOT NULL,
 	date_created timestamp,
-	articleid serial NOT NULL,
-	authorid bigint,
-	PRIMARY KEY (articleid)
-);
+	authorid bigint
+	);
 
 ALTER TABLE article
 	ADD FOREIGN KEY (authorid) 
@@ -53,7 +52,7 @@ CREATE TABLE comment (
 	commentid serial NOT NULL,
 	"comment" varchar(103000),
 	authorid bigint,
-	articleid bigint,
+	article_id bigint,
 	gifid bigint,
 	date_created timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	PRIMARY KEY (commentid)
@@ -64,8 +63,8 @@ ALTER TABLE comment
 	REFERENCES employees (user_id);
 
 ALTER TABLE comment
-	ADD FOREIGN KEY (articleid) 
-	REFERENCES article (articleid);
+	ADD FOREIGN KEY (article_id) 
+	REFERENCES article (article_id);
 
 ALTER TABLE comment
 	ADD FOREIGN KEY (gifid) 

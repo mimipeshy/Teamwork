@@ -9,3 +9,9 @@ Teamwork is an ​ internal social network for employees of an organization. The
 
 3) Activate the virtual environment: `source venv/bin/activate` on Linux/Mac  or `source venv/Scripts/activate` on windows.
 
+## Endpoints
+| Endpoint                                | FUNCTIONALITY                      | 
+| ----------------------------------------|:----------------------------------:|                  
+| POST  /api/v1/gifs                      | CREATE Gifs                        |   
+| GET  /api/v1/article                    | CREATE an article                  |
+| PATCHH  /api/v1/article/<int:aricleid>  | UPDATE ONE article                 |                                                                      

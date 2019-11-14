@@ -7,6 +7,8 @@ const query = require('../server/queries');
 router.post("/gifs" , query.createGif);
 router.post("/article", query.createArticles);
 router.patch("/article/:article_id", query.updateArticle);
+router.get("/feed" , query.getAllArticles);
+
 
 
 

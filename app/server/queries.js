@@ -46,15 +46,30 @@ const updateArticle = (request, response) => {
         status:"success",
         message:`article modified `,
       data:{
+          results:results.rows
+        }
+      });
+  })
+}
+const getAllArticles = (request, response) => {
+    pool.query('SELECT * FROM article ORDER BY article_id ASC', (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json({
+        status:"success",
+        message:`All results `,
+      data:{
         results:results.rows
-      }})
-    }
-  );
-  }
+      }
+    });
+})
+}
 
 module.exports = {
   createGif,
   createArticles,
   updateArticle,
+  getAllArticles
 
 }

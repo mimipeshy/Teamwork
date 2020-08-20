@@ -22,7 +22,7 @@
     "mocha": "^6.2.2"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.7.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

@@ -25,7 +25,7 @@
     "bcrypt": "^3.0.6",
     "bluebird": "^3.7.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",

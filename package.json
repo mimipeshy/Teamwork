@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mimipeshy/Teamwork#readme",
   "devDependencies": {
     "eslint": "^6.6.0",
-    "mocha": "^6.2.2"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
